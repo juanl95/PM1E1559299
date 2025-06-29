@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="UselessParent">
+
+        <!-- Imagen del contacto -->
+        <ImageView
+            android:id="@+id/imgContacto"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@android:drawable/ic_menu_camera"
+            android:layout_marginBottom="8dp"
+            android:scaleType="centerCrop" />
+
+        <!-- Botón para seleccionar imagen -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSeleccionarImagen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Seleccionar Imagen"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
+
+        <!-- País -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="País"
+            android:textSize="14sp"
+            android:layout_marginTop="16dp" />
+
+        <Spinner
+            android:id="@+id/spinnerPais"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Nombre -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nombre"
+            android:layout_marginTop="16dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etNombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Teléfono -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Teléfono">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etTelefono"
+                android:inputType="phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Nota -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nota">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etNota"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Botón guardar -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnGuardar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Guardar"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_marginTop="24dp" />
+
+        <!-- Botón ver lista -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnVerLista"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ver Contactos"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_marginTop="8dp" />
+    </LinearLayout>
+
+</LinearLayout>

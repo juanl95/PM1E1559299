@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".EditarContactoActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="UselessParent">
+
+        <!-- Imagen -->
+        <ImageView
+            android:id="@+id/imgContacto"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@android:drawable/ic_menu_camera"
+            android:scaleType="centerCrop"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Botón imagen -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnImagen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cambiar Imagen"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
+
+        <!-- País -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="País"
+            android:textSize="14sp"
+            android:layout_marginTop="16dp" />
+
+        <Spinner
+            android:id="@+id/spinnerPais"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Nombre -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nombre"
+            android:layout_marginTop="16dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etNombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Teléfono -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Teléfono">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etTelefono"
+                android:inputType="phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Nota -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nota">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etNota"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Botón actualizar -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnActualizar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Actualizar"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_marginTop="24dp" />
+
+    </LinearLayout>
+
+</LinearLayout>
