@@ -51,6 +51,11 @@ public class ListaContactosActivity extends AppCompatActivity {
 
         listView.setOnItemClickListener((parent, view, position, id) -> mostrarOpciones(position));
     }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        cargarContactos("");
+    }
 
     void cargarContactos(String filtro) {
         Cursor cursor = dbHelper.obtenerContactos();
@@ -151,3 +156,4 @@ public class ListaContactosActivity extends AppCompatActivity {
     }
 
 }
+// DBHelper.java
