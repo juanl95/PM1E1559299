@@ -11,6 +11,7 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.view.View;
 import android.widget.*;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -70,6 +71,24 @@ public class MainActivity extends AppCompatActivity {
         ArrayAdapter<String> paisAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, paises);
         spinnerPais.setAdapter(paisAdapter);
         spinnerPais.setSelection(0);
+
+        spinnerPais.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String seleccionado = (String) parent.getItemAtPosition(position);
+                int index = seleccionado.indexOf("+");
+                if (index != -1) {
+                    String prefijo = seleccionado.substring(index);
+                    etTelefono.setText(prefijo);
+                    etTelefono.setSelection(etTelefono.getText().length()); // Coloca el cursor al final
+                } else {
+                    etTelefono.setText("");
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) { }
+        });
 
         btnSeleccionarImagen.setOnClickListener(v -> mostrarOpcionesImagen());
         btnGuardar.setOnClickListener(v -> guardarContacto());
