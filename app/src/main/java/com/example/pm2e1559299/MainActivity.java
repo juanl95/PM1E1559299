@@ -20,6 +20,7 @@ import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import com.google.i18n.phonenumbers.PhoneNumberUtil;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
@@ -50,8 +51,22 @@ public class MainActivity extends AppCompatActivity {
 
         dbHelper = new DBHelper(this);
 
-        List<String> paises = new ArrayList<>(Arrays.asList(getPaises()));
-        paises.add(0, "Seleccione su país");
+        List<String> paises = new ArrayList<>();
+        paises.add("Seleccione su país");
+
+        PhoneNumberUtil phoneUtil = PhoneNumberUtil.getInstance();
+        String[] codes = Locale.getISOCountries();
+        for (String countryCode : codes) {
+            Locale locale = new Locale("", countryCode);
+            String nombrePais = locale.getDisplayCountry();
+            int codigoPrefijo = phoneUtil.getCountryCodeForRegion(countryCode);
+            if (codigoPrefijo != 0) {
+                paises.add(nombrePais + " (+" + codigoPrefijo + ")");
+            } else {
+                paises.add(nombrePais);
+            }
+        }
+
         ArrayAdapter<String> paisAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, paises);
         spinnerPais.setAdapter(paisAdapter);
         spinnerPais.setSelection(0);
